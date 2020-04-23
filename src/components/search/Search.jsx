@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-
+import { SearchContainer, InputContainer,BorderContainer } from './Search.style'
 export default class Search extends Component {
     render() {
+
+        // 动态控制是否有边框
+        let InputWrapper = this.props.hasorder ? BorderContainer : InputContainer;
         return (
-            <div>
-                
-            </div>
+            <SearchContainer {...this.props}>
+                <InputWrapper {...this.props}>
+                    <i></i>
+                    <input type="text" placeholder={this.props.placeholder} />
+                </InputWrapper>
+            </SearchContainer>
         )
     }
 }

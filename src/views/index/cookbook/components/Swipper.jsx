@@ -4,17 +4,15 @@ export default class Swipper extends Component {
     constructor(){
         super();
         this.state = {
-            data: "",
+            // data: "",
             imgHeight: 176,
           }
     }
     render() {
         return (
             <Carousel
-              autoplay={false}
+              autoplay={true}
               infinite
-              beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-              afterChange={index => console.log('slide to', index)}
             >
               {this.props.swipperlist.map(item => (
                 <a
