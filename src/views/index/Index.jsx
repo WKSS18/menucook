@@ -7,9 +7,11 @@ import menu from 'assets/images/menu.png'
 import menuActive from 'assets/images/menu-active.png'
 import more from 'assets/images/more.png'
 import moreActive from 'assets/images/more-active.png'
-const CookBook = () => {
-    return <h1>cook book pages</h1>
-}
+// 首页
+import CookBook from './cookbook/Cookbook'
+
+
+
 const Category = () => {
     return <h1>Category pages</h1>
 }
