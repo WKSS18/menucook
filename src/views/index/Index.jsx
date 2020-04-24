@@ -8,7 +8,7 @@ import menuActive from 'assets/images/menu-active.png'
 import more from 'assets/images/more.png'
 import moreActive from 'assets/images/more-active.png'
 // 首页
-import CookBook from './cookbook/Cookbook'
+import CookBook from './Cookbook'
 
 
 

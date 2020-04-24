@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import Headerbar from 'components/headerbar/Headerbar'
-import Swipper from './components/Swipper'
+import Swipper from './cookbook/components/Swipper'
 import {get} from 'utils/http'
 import Search from 'components/search/Search'
-import HotCate from './components/HotCate'
-import './cookbook.css'
+import HotCate from './cookbook/components/HotCate'
+import './cookbook.scss'
+import Hot10 from './cookbook/components/Hot10'
 export default class Cookbook extends Component {
     constructor(){
         super();
         this.state={
-            swipperlist:[]
+            swipperlist:[],
+            hotcatedata:[],
+            list:[]
         }
     }
     render() {
@@ -21,7 +24,8 @@ export default class Cookbook extends Component {
                 <Search hasborder={true} bordercolor="red" bgcolor="#f5f5f3" inputbgcolor="#666"
                 placeholder="想吃什么，搜这里，如：川菜"
                 ></Search>
-                <HotCate></HotCate>
+                <HotCate list={this.state.hotcatedata}></HotCate>
+                <Hot10 list={this.state.list}></Hot10>
             </div>
         )
     }
@@ -34,7 +38,26 @@ export default class Cookbook extends Component {
             swipperlist: result.data.data
         })
     }
+
+    async getHotCate(){
+        let result = await get('/api/hotcate');
+        this.setState({
+            hotcatedata:result.data.list
+        })
+        console.log(this.state.hotcatedata)
+    }
+
+    async getlist(){
+        let result = await get('/api/list');
+        this.setState({
+            list:result.data.data
+        })
+        console.log(this.state.list)
+    }
+
     componentDidMount(){
         this.getSwipper();
+        this.getHotCate();
+        this.getlist();
     }
 }

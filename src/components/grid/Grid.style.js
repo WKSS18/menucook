@@ -8,8 +8,12 @@ const GridContainer = styled.div`
             display:flex;
             justify-content:center;
             align-items:center;
-            height:1.5rem;
+            /* height:1.5rem; */
             width:${({ column }) => 100 / column}%;
+            flex-direction:column;
+            img{
+                width:100%
+            }
         }
     }
 `
