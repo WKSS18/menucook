@@ -1,29 +1,50 @@
 .hotCate {
-    line-height: 0.9rem;
-  }
-  
-  .hotCate h1 {
+  line-height: 0.9rem;
+}
+
+.hotCate {
+  h1 {
     font-size: 0.3rem;
     margin-left: 0.3rem;
     font-weight: 200;
     color: #929292;
   }
-  
-  .Top10{
-    ul{
-      display: flex;
-      flex-wrap: wrap;
-      li{
-        width: 50%;
-        padding: 0.1rem;
-        text-align: center;
-        img{
-          width: 100%;
-        }
-        p{
-          background:white;
-          padding: 3px 0;
-        }
+
+  ul {
+    padding: 0 5px;
+    li {
+      padding: 5px;
+      span{
+        line-height: 15px;
+        padding-top: 5px;
+      }
+      img {
+        border-radius: 10px;
       }
     }
   }
+
+
+}
+
+.Top10 {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      width: 50%;
+      padding: 0.1rem;
+      text-align: center;
+
+      img {
+        width: 100%;
+      }
+
+      p {
+        background: white;
+        padding: 3px 0;
+      }
+    }
+  }
+}
