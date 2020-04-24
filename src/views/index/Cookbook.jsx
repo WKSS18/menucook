@@ -21,7 +21,7 @@ export default class Cookbook extends Component {
                 <Headerbar>菜谱大全</Headerbar>
                 <Swipper swipperlist={this.state.swipperlist}></Swipper>
                 {/* hadborder动态控制是否有边框 */}
-                <Search hasborder={true} bordercolor="red" bgcolor="#f5f5f3" inputbgcolor="#666"
+                <Search hasborder={true} bordercolor="red" bgcolor="#f5f5f3" inputbgcolor="#ccc"
                 placeholder="想吃什么，搜这里，如：川菜"
                 ></Search>
                 <HotCate list={this.state.hotcatedata}></HotCate>

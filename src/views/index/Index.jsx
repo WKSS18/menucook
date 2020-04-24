@@ -9,33 +9,34 @@ import more from 'assets/images/more.png'
 import moreActive from 'assets/images/more-active.png'
 // 首页
 import CookBook from './Cookbook'
+import Category from './category/Category'
 
 
 
-const Category = () => {
-    return <h1>Category pages</h1>
-}
+// const Category = () => {
+//     return <h1>Category pages</h1>
+// }
 const More = () => {
     return <h1>More pages</h1>
 }
 
 // 菜单数据
 const tablist = [{
-    id:1,
+    id: "CookBook",
     title: "菜谱大全",
     icon: cookbook,
     iconActive: cookbookActive,
     comp: CookBook
 },
 {
-    id:2,
+    id: "Category",
     title: "分类",
     icon: menu,
     iconActive: menuActive,
     comp: Category
 },
 {
-    id:3,
+    id: "More",
     title: "更多",
     icon: more,
     iconActive: moreActive,
@@ -87,6 +88,10 @@ export default class Index extends Component {
                                         this.setState({
                                             selectedTab: item.id,
                                         });
+                                        console.log(this.props);
+                                        // 利用this.props拿到当前上下文的路由信息
+                                        let {path} = this.props.match;
+                                        this.props.history.push(path+"/"+item.id);
                                     }}
                                     data-seed="logId"
                                 >
@@ -96,10 +101,6 @@ export default class Index extends Component {
                             )
                         })
                     }
-
-
-
-
                 </TabBar>
             </div>
         );

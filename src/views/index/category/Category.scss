@@ -1,0 +1,47 @@
+.HeaderTab{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.9rem;
+    background:#FF6C05;
+    
+    ul{
+        position: relative;
+        display:flex;
+        width: 2.85rem;
+        height:0.6rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.3rem;
+        border: 1px solid white;
+        
+        li{
+            flex: 1;
+            z-index: 2;
+            color:white;
+        }
+
+        .active{
+            color:#FF6C05;
+        }
+
+        &::before{
+            content:'';
+            position:absolute;
+            left: 0;
+            top: 0;
+            width: 1.425rem;
+            height: 0.6rem;
+            border-radius: 0.3rem;
+            background: white;
+            transition: all 0.3s;
+        }
+        &.left::before{
+            transform: translate(0,0)
+        }
+        &.right::before{
+            transform: translate(100%,0);
+        }
+
+    }
+}

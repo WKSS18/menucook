@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import search from 'assets/images/search.png'
-import {Border} from 'components/style/Border'
+import { Border } from 'components/style/Border'
 
 const SearchContainer = styled.div`
-    background:${({bgcolor})=>bgcolor};
+    background:${({ bgcolor }) => bgcolor};
     height:1.3rem;
     padding:0.3rem;
     box-sizing:border-box;  
@@ -14,12 +14,15 @@ const InputContainer = styled.div`
     align-items:center;
     /* border-radius:0.15rem; */
     height:0.8rem;
-    background:#fff;
+    background:${({ inputbgcolor }) => inputbgcolor};
     /* border:1px solid #b28969; */
     input{
         border:none;
         width:60%;
         /* z-index: 2; */
+        background:${({ inputbgcolor }) => inputbgcolor};
+        padding:0.05rem;
+        font-size:0.25rem;
     }
     i{
         background:url(${search});
@@ -30,9 +33,9 @@ const InputContainer = styled.div`
     }
 `
 const BorderContainer = Border({
-    Comp:InputContainer,
-    bordercolor:({bordercolor})=>bordercolor,
-    radius:'0.15'
+    Comp: InputContainer,
+    bordercolor: ({ bordercolor }) => bordercolor,
+    radius: '0.15'
 })
 export {
     SearchContainer,
