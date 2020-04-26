@@ -11,13 +11,14 @@ const Border = ({ Comp, bordercolor = "", radius = 0, borderwidth = '1px' }) => 
     content:" ";
     position:absolute;
     left:0px;
-    right: 0px;
+    top:0px;
     height: 100%;
     width: 100%;
     border-style:solid;
     border-color:${bordercolor};        
     border-width:${borderwidth};
-    transform-origin:0 50%;
+    transform-origin:0 0;
+    z-index:1;
     /* 不响应鼠标事件 */
     pointer-events:none;
     @media (-webkit-min-device-pixel-ratio:1.5),(min-device-pixel-ratio:1.5){

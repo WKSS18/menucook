@@ -4,7 +4,7 @@ export default class Search extends Component {
     render() {
 
         // 动态控制是否有边框
-        let InputWrapper = this.props.hasorder ? BorderContainer : InputContainer;
+        let InputWrapper = this.props.hasborder ? BorderContainer : InputContainer;
         return (
             <SearchContainer {...this.props}>
                 <InputWrapper {...this.props}>

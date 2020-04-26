@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello world</title>
+
+    <style type="text/css">
+        html {
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+
+        #container {
+            height: 100%
+        }
+    </style>
+    <script type="text/javascript"
+        src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=yLXoZrAnBVAWPN9ptG0RFBN3hG5a20If">
+    </script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        var map = new BMapGL.Map("container");
+        // 创建地图实例 
+        var point = new BMapGL.Point(116.404, 39.915);
+        // 创建点坐标 
+        map.centerAndZoom(point, 15);
+
+        map.enableScrollWheelZoom(true);
+
+        // var label = new BMapGL.Label('hello world', { // 创建文本标注
+        //     position: point,
+        //     offset: new BMapGL.Size(10, 20)
+        // })
+        // map.addOverlay(label);
+
+        var marker = new BMapGL.Marker(point); // 创建标注
+        map.addOverlay(marker);
+        var opts = {
+            width: 250, // 信息窗口宽度
+            height: 100, // 信息窗口高度
+            title: "Hello" // 信息窗口标题
+        }
+        var infoWindow = new BMapGL.InfoWindow("World", opts); // 创建信息窗口对象
+        marker.addEventListener("click", function () {
+            map.openInfoWindow(infoWindow, point); // 打开信息窗口
+        });
+
+        var polyline = new BMapGL.Polyline([
+            new BMapGL.Point(116.399, 39.910),
+            new BMapGL.Point(116.405, 39.920),
+            new BMapGL.Point(116.415, 39.900),
+            new BMapGL.Point(116.399, 39.910),
+        ], {
+            strokeColor: "red",
+            strokeWeight: 20,
+            strokeOpacity: 1
+        });
+        map.addOverlay(polyline);
+    </script>
+</body>
+
+</html>

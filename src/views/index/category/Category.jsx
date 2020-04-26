@@ -4,12 +4,16 @@ import Search from 'components/search/Search'
 import Classify from './components/Classify'
 import Food from './components/Food'
 import "./Category.scss"
+import { get } from "utils/http"
+import  CategoryCon  from "./Category.style"
 import { Route, Switch, Redirect, withRouter } from 'react-router-dom'
 class Category extends Component {
     constructor() {
         super();
         this.state = {
             dir: "left",
+            categorylist: [],
+            materiallist: []
         }
     }
     handlClick = (val) => {
@@ -19,9 +23,9 @@ class Category extends Component {
             }
         }, () => {
             // 这里读取state确保值已经修改完毕了
-            if(this.state.dir==="left"){
+            if (this.state.dir === "left") {
                 this.props.history.push('/index/Category/classify')
-            }else{
+            } else {
                 this.props.history.push('/index/Category/food')
             }
         })
@@ -37,7 +41,7 @@ class Category extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="box">
                 <div className="HeaderTab">
                     <Headerbar>
                         <ul className={this.state.dir}>
@@ -48,16 +52,37 @@ class Category extends Component {
                 </div>
                 <Search inputbgcolor="#EFEFEF" bgcolor="#ffffff" placeholder="想吃什么，搜这里，00如：川菜"></Search>
                 {/* 排他性路由 */}
-                <Switch>
-                    <Route path="/index/Category/classify" component={Classify}></Route>
-                    <Route path="/index/Category/food" component={Food}></Route>
-                    {/* 初始进来进行路由重定向 */}
-                    <Redirect from="/index/Category" to='/index/Category/classify'></Redirect>
-                </Switch>
+                    <div className="scroll">
+                        <Switch>
+                            <Route style={{height:"100%"}} path="/index/Category/classify" render={() => {
+                                return <Classify list={this.state.categorylist}></Classify>
+                            }}>
+                            </Route>
+                            <Route path="/index/Category/food" render={() => {
+                                return <Food list={this.state.materiallist}></Food>
+                            }}>
+
+                            </Route>
+                            {/* 初始进来进行路由重定向 */}
+                            <Redirect from="/index/Category" to='/index/Category/classify'></Redirect>
+                        </Switch>
+                    </div>
             </div>
 
 
         )
+    }
+
+    async getCategory() {
+        let result = await get("/api/category");
+        this.setState({
+            categorylist: result.data.data.category,
+            materiallist: result.data.data.material
+        })
+        console.log(this.state.categorylist, this.state.materiallist)
+    }
+    componentDidMount() {
+        this.getCategory();
     }
 }
 

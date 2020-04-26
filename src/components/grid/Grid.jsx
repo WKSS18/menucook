@@ -17,8 +17,6 @@ export default class Grid extends Component {
                         <li>更多</li>
                     </ul>
                 </GridContainer>
-                
-            
             </div>
         )
     }
