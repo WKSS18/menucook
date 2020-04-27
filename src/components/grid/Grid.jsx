@@ -21,6 +21,6 @@ export default class Grid extends Component {
         )
     }
     componentDidMount() {
-        console.log(this.props.hotlist);
+
     }
 }

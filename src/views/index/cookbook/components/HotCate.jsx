@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import Grid from "components/grid/Grid"
-export default class HotCate extends Component {
+import {withRouter} from 'react-router-dom' 
+class HotCate extends Component {
     handleClick=(item)=>{
-        console.log(item)
+        this.props.history.push('/list');
+
     }
     render() {
         return (
@@ -14,7 +16,8 @@ export default class HotCate extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props.hotlist)
+ 
     }
 }
 
+export default withRouter(HotCate)

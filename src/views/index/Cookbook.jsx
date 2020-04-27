@@ -33,7 +33,6 @@ export default class Cookbook extends Component {
 
     async getSwipper(){
         var result = await get('/api/swipper');
-        console.log(result);
         this.setState({
             swipperlist: result.data.data
         })
@@ -44,7 +43,6 @@ export default class Cookbook extends Component {
         this.setState({
             hotcatedata:result.data.list
         })
-        console.log(this.state.hotcatedata)
     }
 
     async getlist(){
@@ -52,7 +50,6 @@ export default class Cookbook extends Component {
         this.setState({
             list:result.data.data
         })
-        console.log(this.state.list)
     }
 
     componentDidMount(){

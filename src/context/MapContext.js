@@ -19,6 +19,7 @@ class MapProvider extends React.Component{
                 showMap:!preState.showMap
             }
         },()=>{
+            // 将修改后的值存储到localStorage中
             localStorage.setItem('showMap',this.state.showMap)
         })
     }

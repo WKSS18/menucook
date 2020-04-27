@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 // Comp传过来的组件
 const Border = ({ Comp, bordercolor = "", radius = 0, borderwidth = '1px' }) => {
-    console.log(radius);
 
     return styled(Comp)`
     position: relative;

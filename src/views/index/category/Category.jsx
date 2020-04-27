@@ -79,7 +79,6 @@ class Category extends Component {
             categorylist: result.data.data.category,
             materiallist: result.data.data.material
         })
-        console.log(this.state.categorylist, this.state.materiallist)
     }
     componentDidMount() {
         this.getCategory();

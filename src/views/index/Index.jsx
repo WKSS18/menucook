@@ -69,6 +69,7 @@ export default class Index extends Component {
         return (
             <MapCounsumer>
                 {
+                    // 通过控制tablist的元素实现添加删除效果
                     ({ showMap }) => {
                         if (showMap) {
                             if (this.state.tablist.length === 3) {
