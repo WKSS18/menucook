@@ -2,5 +2,6 @@
     "/api/swipper":"/swipper",
     "/api/hotcate":"/hotcate",
     "/api/list":"/list",
-    "/api/category":"/category"
+    "/api/category":"/category",
+    "/apilist/cookdetail":"/cookdetail"
 }

@@ -1,0 +1,48 @@
+/* body,html{
+    height: 100%;
+}
+#root{
+height: 100%;
+} 
+.sc-fzoLsD.gOhaTN{
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.sc-fzpans.kfQByi {
+    flex: 1;
+    overflow: auto;
+} */
+
+
+.sc-fzoLsD.gOhaTN {
+    position: relative;
+    height: 100%;
+}
+
+div#root {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+.sc-fzpans.kfQByi {
+    margin-top: 1rem;
+}
+.gOhaTN .am-navbar-light {
+    background-color: #EE7530;
+    position: fixed;
+    height:1rem;
+    z-index: 10;
+    top: 0px;
+    left: 0;
+    right: 0;
+}

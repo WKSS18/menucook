@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import 'assets/styles/reset.css'
+import 'assets/styles/common.css'
 import store from "./store/store"
 // import {MapProvider} from "./context/MapContext"
 import {Provider} from "react-redux"

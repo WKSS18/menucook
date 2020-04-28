@@ -7,4 +7,14 @@ module.exports = function(app) {
       changeOrigin: true,
     })
   );
+  app.use(
+    '/apilist',
+    createProxyMiddleware({
+      target: 'http://localhost:8500',
+      changeOrigin: true,
+      pathRewrite:{
+        "^/apilist":""
+      }
+    })
+  )
 };
