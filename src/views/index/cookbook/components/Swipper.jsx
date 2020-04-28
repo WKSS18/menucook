@@ -14,14 +14,14 @@ export default class Swipper extends Component {
               autoplay={true}
               infinite
             >
-              {this.props.swipperlist.map(item => (
+              {this.props.list.map(item => (
                 <a
                   key={item.id}
                   href=" "
                   style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                 >
                   <img
-                    src={`${item.url}`}
+                    src={`${item.img}`}
                     alt=""
                     style={{ width: '100%', verticalAlign: 'top' }}
                     onLoad={() => {

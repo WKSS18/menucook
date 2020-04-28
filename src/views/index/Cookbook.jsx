@@ -6,7 +6,8 @@ import Search from 'components/search/Search'
 import HotCate from './cookbook/components/HotCate'
 import './cookbook.scss'
 import Hot10 from './cookbook/components/Hot10'
-export default class Cookbook extends Component {
+import connect from "./cookbook/redux/connect"
+class Cookbook extends Component {
     constructor(){
         super();
         this.state={
@@ -19,7 +20,7 @@ export default class Cookbook extends Component {
         return (
             <div>
                 <Headerbar>菜谱大全</Headerbar>
-                <Swipper swipperlist={this.state.swipperlist}></Swipper>
+                <Swipper list={this.props.swiperlist}></Swipper>
                 {/* hadborder动态控制是否有边框 */}
                 <Search hasborder={true} bordercolor="red" bgcolor="#f5f5f3" inputbgcolor="#ccc"
                 placeholder="想吃什么，搜这里，如：川菜"
@@ -32,10 +33,13 @@ export default class Cookbook extends Component {
 
 
     async getSwipper(){
-        var result = await get('/api/swipper');
-        this.setState({
-            swipperlist: result.data.data
-        })
+        // var result = await get('/api/swipper');
+        // this.setState({
+        //     swipperlist: result.data.data
+        // })
+        console.log(this.props)
+        this.props.loadData({_page:1,_limit:10,q:""});
+    
     }
 
     async getHotCate(){
@@ -58,3 +62,4 @@ export default class Cookbook extends Component {
         this.getlist();
     }
 }
+export default connect(Cookbook)
